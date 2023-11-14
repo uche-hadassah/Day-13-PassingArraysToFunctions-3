@@ -28,6 +28,14 @@ int main()
 		cout << "\nEnter the number you want to look for in the array:";
 		cin >> number;
 		cout <<"\n"<< number << " appeared " << Count(array, number) << " times in the array!";
+		if (IsMember(array, number))
+		{
+			cout<<"\n"<< number << " appears in the array.";
+		}
+		else
+		{
+			cout<<"\n"<< number << " doesn't appear in the array.";
+		}
 }
 
 int Count(int a1[], int num)
@@ -47,5 +55,13 @@ int Count(int a1[], int num)
 
 bool IsMember(int s1[], int x)
 {
+	int j = 0;
+	do
+	{
+		if (Count(s1, x))
+		{
+			return true;
+		}
+	} while (s1[j] != -1);
 	return false;
 }
