@@ -12,12 +12,37 @@ int Count(int[], int);
 bool IsMember(int[], int);
 int main()
 {
-
+	int array[MAX];
+	int number;
+	int i = 0;
+	cout << "Enter the integers(-1 to end):";
+		do
+		{
+			cin >> array[i];
+			if (array[i] == -1)
+			{
+				break;
+			}
+			i++;
+		} while (array[i] != -1 && i < MAX);
+		cout << "\nEnter the number you want to look for in the array:";
+		cin >> number;
+		cout <<"\n"<< number << " appeared " << Count(array, number) << " times in the array!";
 }
 
 int Count(int a1[], int num)
 {
-	return 0;
+	int i = 0;
+	int count = 0;
+	do
+	{
+		if (a1[i] == num)
+		{
+			count++;
+        }
+		i++;
+	} while (a1[i] != -1);
+	return count;
 }
 
 bool IsMember(int s1[], int x)
