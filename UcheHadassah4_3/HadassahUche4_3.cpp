@@ -1,13 +1,10 @@
-/*a) Write a function called Count that takes as parameters an integer array a1, and 
-integer num, and returns the number of times num appears in the array a. You should 
-assume that there is a -1 at the end of the array. 
-b) Use your function Count above (i.e. call it) to write a function called IsMember
-that takes as parameters an integer array s1 (assumed to be terminated by -1) and an 
-integer x and returns true (i.e. 1) if x appears anywhere in the array. 
-Write a main program to test the function Count using a user defined array.*/
+/*Name: Uche Hadassah
+This program uses a function (Count) to check and output how many times an integer appeared in a user defined array
+and calls the Count function in the IsMember function to check an output if the number appears at all*/
 #include<iostream>
 using namespace std;
 const int MAX = 100;
+//Function Prototypes
 int Count(int[], int);
 bool IsMember(int[], int);
 int main()
@@ -19,7 +16,7 @@ int main()
 		do
 		{
 			cin >> array[i];
-			if (array[i] == -1)
+			if (array[i] == -1)//Activates the sentinel
 			{
 				break;
 			}
@@ -27,8 +24,8 @@ int main()
 		} while (array[i] != -1 && i < MAX);
 		cout << "\nEnter the number you want to look for in the array:";
 		cin >> number;
-		cout <<"\n"<< number << " appeared " << Count(array, number) << " times in the array!";
-		if (IsMember(array, number))
+		cout <<"\n"<< number << " appeared " << Count(array, number) << " times in the array!";//calls the Count function
+		if (IsMember(array, number))//calls the IsMember function
 		{
 			cout<<"\n"<< number << " appears in the array.";
 		}
@@ -40,8 +37,8 @@ int main()
 
 int Count(int a1[], int num)
 {
-	int i = 0;
-	int count = 0;
+	int i = 0;//counter to increment through the loop
+	int count = 0;//The counter to check how many times the number appears
 	do
 	{
 		if (a1[i] == num)
@@ -50,10 +47,10 @@ int Count(int a1[], int num)
         }
 		i++;
 	} while (a1[i] != -1);
-	return count;
+	return count;//returns the number of times the number appears
 }
 
 bool IsMember(int s1[], int x)
 {
-	 return Count(s1, x) > 0;
+	 return Count(s1, x) > 0;//Since the Count function already loops through the array, just return the function
 }
