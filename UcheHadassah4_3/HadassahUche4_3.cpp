@@ -55,13 +55,5 @@ int Count(int a1[], int num)
 
 bool IsMember(int s1[], int x)
 {
-	int j = 0;
-	do
-	{
-		if (Count(s1, x))
-		{
-			return true;
-		}
-	} while (s1[j] != -1);
-	return false;
+	 return Count(s1, x) > 0;
 }
